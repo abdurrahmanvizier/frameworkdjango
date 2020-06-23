@@ -1,0 +1,33 @@
+{%  extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Input Multiple Object</h5>
+			<hr>
+			<div style="width:150px;height:150px;line-height:3em;overflow:auto;padding:5px;">
+				{% if messages %}
+					{% for message in messages %}
+						<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+					{% endfor %}
+				{% endif %}
+			</div>	
+		</div>
+		<div class="container">
+			{% include hot_template %}
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+
+
+{% endblock %}
