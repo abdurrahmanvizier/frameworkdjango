@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<h5>INPUT PROPERTIES:</h5>
+		<hr>
+		<div class="card card-body" style="max-height:200px;overflow-y:auto;">
+		<a class="btn btn-primary  btn-sm btn-block" href="{% url 'owner' %}">Create Owner</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'user' %}">Create User</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'storageengine' %}">Create Storage</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'objecttype' %}">Create Type</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'database' %}">Create Database</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'partition' %}">Create Partition</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'snapshot' %}">Create Snapshot</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'server' %}">Create Server</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'servertunnel' %}">Create Server Tunnel</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'files' %}">Create File</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'process' %}">Create Process</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'engine' %}">Create Engine</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'processengine' %}">Create Process Engine</a>
+		</div>
+    </div>
+
+	<div class="col-md">
+		<h5>INPUT RELATION</h5>
+		<hr>
+		<div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'object' %}">Create Object Relation</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'multiplerelation' %}">Create Object Relation Multiple</a>
+		</div>
+    </div>
+    
+    <div class="col-md">
+		<h5>INPUT DESCRIPTION</h5>
+		<hr>
+		<div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'listframework' %}">Create Object Descriptions</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'listframework' %}">Create Column Descriptions</a>
+		</div>
+	</div>
+
+</div>
+<br>
+<div class="row">
+	<div class="col-md">
+		<h5>DELETE OBJECT</h5>
+		<hr>
+		<div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-danger btn-block" href="{% url 'deleteall' %}">DELETE ALL OBJECT</a>
+            {% comment %} <a class="btn btn-primary  btn-sm btn-danger btn-block" href="{% url 'multiplerelation' %}">Create Object Relation Multiple</a> {% endcomment %}
+		</div>
+    </div>
+    
+    <div class="col-md">
+		<h5>INPUT DESCRIPTION</h5>
+		<hr>
+		<div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'listframework' %}">Create Object Descriptions</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'listframework' %}">Create Column Descriptions</a>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

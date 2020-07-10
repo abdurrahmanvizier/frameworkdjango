@@ -1,0 +1,32 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Update Process</h5>
+			<hr>
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+				{% endfor %}
+			{% endif %}
+			<div class="container">
+				{% include hot_template %}
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+
+
+{% endblock %}

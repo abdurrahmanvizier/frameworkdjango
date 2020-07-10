@@ -1,0 +1,34 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Input Process</h5>
+			<hr>
+			<div style="height:150px;line-height:3em;overflow:auto;">
+				{% if messages %}
+					{% for message in messages %}
+						<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+					{% endfor %}
+				{% endif %}
+			</div>	
+			<div class="container">
+				{% crispy form %}
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+
+
+{% endblock %}

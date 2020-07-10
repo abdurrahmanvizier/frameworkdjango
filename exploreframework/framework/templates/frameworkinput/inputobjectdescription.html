@@ -1,0 +1,75 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Input Object Description Manual</h5>
+			<hr>
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+				{% endfor %}
+			{% endif %}
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'addoneobject' %}">Input ObjectDesc</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'objectsprocessrelation' %}">Input Object Description</a>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'objectsprocessrelation' %}">Input Table Description</a>
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+
+			<form method="get">
+				{{ myFilterObject.form }}
+				<br>
+		    	<button class="btn btn-primary" type="submit">Search</button>
+		  	</form>
+
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Objecthashkey</th>
+                    <th>Object Name</th>
+					<th>Object Description</th>
+					<th>Created By</th>
+                    <th>Created At</th>
+				</tr>
+
+				{% for data in objects %}
+
+				<tr>
+					<td>{{data.objecthashkey}}</td>
+                    <td>{{data.objectname}}</td>
+                    <td>{{data.objectdesc}}</td>
+					<td>{{data.sourcesystemcreatedby}}</td>
+                    <td>{{data.sourcesystemcreatedtime}}</td>
+
+					{% comment %} <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td> {% endcomment %}
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

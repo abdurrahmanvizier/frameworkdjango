@@ -1,0 +1,86 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Input File</h5>
+			<hr>
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+				{% endfor %}
+			{% endif %}
+			<div class="container">
+				{% crispy form %}
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total File</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{total_file}}</h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+
+			<form method="get">
+				{{ myFilterFile.form }}
+				<br>
+		    	<button class="btn btn-primary" type="submit">Search</button>
+		  	</form>
+
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>File Name</th>
+					<th>File Location</th>
+                    <th>File Path</th>
+                    <th>Created By</th>
+					<th>Created At</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for data in file %}
+
+				<tr>
+					<td>{{data.filename}}</td>
+                    <td>{{data.location}}</td>
+                    <td>{{data.path}}</td>
+					<td>{{data.sourcesystemcreatedby}}</td>
+					<td>{{data.sourcesystemcreatedtime}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_file' data.filehashkey %}">Update</a></td>
+
+					<td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

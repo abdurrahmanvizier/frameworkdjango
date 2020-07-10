@@ -1,0 +1,183 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<h5 style="text-align:center">Search Framework</h5>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="card card-body col-md-4">
+                            <p style="text-align:center">Search By Objecthashkey</p>
+                            <form method="GET" action="">
+                                <input class="col-md-8" name="objecthashkey" value="{{request.GET.objecthashkey}}" placeholder="Search Objecthashkey...">
+                                <button class="col-md-3 btn btn-success" type="submit">
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                        <div class="card card-body col-md-4">
+                            <p style="text-align:center">Search By User Created</p>
+                            <form method="GET" action="">
+                                <input class="col-md-8" name="sourcesystemcreatedby" value="{{request.GET.sourcesystemcreatedby}}" placeholder="Search Craeted By...">
+                                <button class="col-md-3 btn btn-success" type="submit">
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                        <div class="card card-body col-md-4">
+                            <p style="text-align:center">Search By Time Created</p>
+                            <form method="GET" action="">
+                                <input class="col-md-8" name="sourcesystemcreatedtime" value="{{request.GET.sourcesystemcreatedtime}}" placeholder="Search Crated At...">
+                                <button class="col-md-3 btn btn-success" type="submit">
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+		</div>
+	</div>
+</div>
+<div class="col-md">
+    <div class="card card-body" style="overflow:auto">
+        <table class="table table-sm">
+            <tr>
+                <th>Objecthashkey</th>
+                <th>Ownerhashkey</th>
+                <th>Storageenginehashkey</th>
+                <th>Objecttypehashkey</th>
+                <th>Databasehashkey</th>
+                <th>Serverhashkey</th>
+                <th>Servertunnelhashkey</th>
+                <th>Filehashkey</th>
+                <th>Objectpartitionhashkey</th>
+                <th>Objectsnapshothashkey</th>
+                <th>Queryhashkey</th>
+                <th>Sourcesystemcreatedby</th>
+                <th>Sourcesystemcreatedtime</th>
+                <th>Delete?</th>
+            </tr>
+            {% if objects_rel %}
+                {% for data in objects_rel %}
+
+                <tr>
+                    <td><a href="#">{{data.objecthashkey}}</a></td>
+                    {% if data.ownerhashkey %}
+                        <td><a href="{% url 'update_owner' data.ownerhashkey %}">{{data.ownerhashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.ownerhashkey}}</td>
+                    {% endif %}
+                    {% if data.storageenginehashkey %}
+                        <td><a href="{% url 'update_storageengine' data.storageenginehashkey %}">{{data.storageenginehashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.storageenginehashkey}}</td>
+                    {% endif %}
+                    {% if data.objecttypehashkey %}
+                        <td><a href="{% url 'update_objecttype' data.objecttypehashkey %}">{{data.objecttypehashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.objecttypehashkey}}</td>
+                    {% endif %}
+                    {% if data.databasehashkey %}
+                        <td><a href="{% url 'update_database' data.databasehashkey %}">{{data.databasehashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.databasehashkey}}</td>
+                    {% endif %}
+                    {% if data.serverhashkey %}
+                        <td><a href="{% url 'update_storageengine' data.serverhashkey %}">{{data.serverhashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.serverhashkey}}</td>
+                    {% endif %}
+                    {% if data.servertunnelhashkey %}
+                        <td><a href="{% url 'update_servertunnel' data.servertunnelhashkey %}">{{data.servertunnelhashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.servertunnelhashkey}}</td>
+                    {% endif %}
+                    {% if data.filehashkey %}
+                        <td><a href="{% url 'update_file' data.filehashkey %}">{{data.filehashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.filehashkey}}</td>
+                    {% endif %}
+                    {% if data.objectpartitionhashkey %}
+                        <td><a href="{% url 'update_partition' data.objectpartitionhashkey %}">{{data.objectpartitionhashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.objectpartitionhashkey}}</td>
+                    {% endif %}
+                    {% if data.objectsnapshothashkey %}
+                        <td><a href="{% url 'update_snapshot' data.objectsnapshothashkey %}">{{data.objectsnapshothashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.objectsnapshothashkey}}</td>
+                    {% endif %}
+                    {% if data.queryhashkey %}
+                        <td><a href="{% url 'update_query' data.queryhashkey %}">{{data.queryhashkey}}</a></td>
+                    {% else %}
+                        <td>{{data.queryhashkey}}</td>
+                    {% endif %}
+                    <td>{{data.sourcesystemcreatedby}}</td>
+                    <td>{{data.sourcesystemcreatedtime}}</td>
+                    <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <h5 style="text-align:center">No Result</h5>
+            {% endif %}
+
+        </table>
+    </div>
+</div>
+<div class="col-md">
+    <div class="card card-body" style="overflow:auto">
+        <table class="table table-sm">
+            <tr>
+                <th>Source Objecthashkey</th>
+                <th>Destinition Objecthashkey</th>
+                <th>Process Engine</th>
+                <th>User Framework</th>
+                <th>Sourcesystemcreatedby</th>
+                <th>Sourcesystemcreatedtime</th>
+                <th>Update</th>
+                <th>Delete?</th>
+            </tr>
+            {% if objectproc %}
+                {% for proc in objectproc %}
+
+                <tr>
+                    {% if proc.src_objecthashkey %}
+                        <td><a href="{% url 'update_owner' proc.src_objecthashkey %}">{{proc.src_objecthashkey}}</a></td>
+                    {% else %}
+                        <td>{{proc.src_objecthashkey}}</td>
+                    {% endif %}
+                    {% if proc.dest_objecthashkey %}
+                        <td><a href="{% url 'update_storageengine' proc.dest_objecthashkey %}">{{proc.dest_objecthashkey}}</a></td>
+                    {% else %}
+                        <td>{{proc.dest_objecthashkey}}</td>
+                    {% endif %}
+                    {% if proc.processenginehashkey %}
+                        <td><a href="{% url 'update_objecttype' proc.processenginehashkey %}">{{proc.processenginehashkey}}</a></td>
+                    {% else %}
+                        <td>{{proc.processenginehashkey}}</td>
+                    {% endif %}
+                    {% if proc.userhashkey %}
+                        <td><a href="{% url 'update_database' proc.userhashkey %}">{{proc.userhashkey}}</a></td>
+                    {% else %}
+                        <td>{{proc.userhashkey}}</td>
+                    {% endif %}
+                    <td>{{proc.sourcesystemcreatedby}}</td>
+                    <td>{{proc.sourcesystemcreatedtime}}</td>
+                    <td><a class="btn btn-sm btn-danger" href="#">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <h5 style="text-align:center">No Result</h5>
+            {% endif %}
+
+        </table>
+    </div>
+</div>
+<br>
+
+{% endblock %}

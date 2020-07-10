@@ -1,0 +1,117 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<br>
+<div class="col-md">
+	<div class="card card-body bg-light">
+            {% if request.user == "Abdurrahman" %}
+                  <h5 href="#" style="text-align:center">Object Properties Count</h5>
+            {% else %}
+                  <h5 style="text-align:center">Object Properties Count</h5>
+            {% endif %}
+		<hr>
+            <div class="card-deck">
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Object</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_object}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Owner</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_owner}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Storage Engine</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_storageengine}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Object Type</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_objecttype}}</h1>
+                        </div>
+                  </div>
+            </div>
+            <br>
+            <div class="card-deck">
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Partition</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_partition}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Server</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_server}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Server Tunnel</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_servertunnel}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total File</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_files}}</h1>
+                        </div>
+                  </div>
+            </div>
+            <br>
+            <div class="card-deck">
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Database</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_database}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Snapshot</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_snapshot}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Query</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_query}}</h1>
+                        </div>
+                  </div>
+            </div>
+            <br>
+            <div class="card-deck">
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Process</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_process}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Engine</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_engine}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Process Engine</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_processengine}}</h1>
+                        </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title" style="text-align:center">Total Object User</h5>
+                              <h1 class="card-text" style="text-align: center;padding: 10px">{{total_user}}</h1>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+{% endblock %}
