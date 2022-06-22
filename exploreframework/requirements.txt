@@ -14,7 +14,7 @@ lazy-object-proxy==1.4.3
 Markdown==3.2.2
 mccabe==0.6.1
 mysql-connector-python==8.0.20
-numpy==1.19.0
+numpy==1.22.0
 pandas==1.0.5
 pexpect==4.8.0
 protobuf==3.12.2
